@@ -1,0 +1,8 @@
+<header>
+    <nav>
+        <a href={% url "index" %}>All Challenges</a>
+        {% comment %} {{month_name}} -- this parameter from challenge.html can be imported here and used as we send that from that html code. But this will not appear in index.html, even if we use header.html there {% endcomment %}
+    </nav>
+</header>
+
+{{active_page}}

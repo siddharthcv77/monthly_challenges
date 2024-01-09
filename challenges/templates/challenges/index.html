@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "challenges/includes/header.css" %}">
+    <link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    All Challenges
+{% endblock %}
+
+{% block content %}
+    {% include "challenges/includes/header.html"%}
+    <ul>
+        {% for month in months_list %} 
+            <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% comment %} the 'month' list was passed as a parameter from the views.py {% endcomment %}
+{% comment %} used tags in django to create the for loop {% endcomment %}
+{% comment %} used the 'url' tag to fetch the url path from urls.py using the 'month-challenge' name {% endcomment %}
+{% comment %} the '|title' is a django template filter used to capitalize the word {% endcomment %}
+{% comment %} {% extends "../../../templates/base.html" %} {% endcomment %}
